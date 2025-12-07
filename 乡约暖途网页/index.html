@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乡约暖途——大学生返乡最后十公里公益助行计划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        /* 头部导航 */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+            color: #1e5f8e;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e5f8e;
+        }
+        
+        .logo-text span {
+            color: #ff7e00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 35px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #1e5f8e;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ff7e00;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .btn-join {
+            background-color: #ff7e00;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 15px;
+        }
+        
+        .btn-join:hover {
+            background-color: #e67300;
+            transform: translateY(-2px);
+        }
+        
+        /* 轮播图区域 - 更新为火车轨道主题 */
+        .hero {
+            height: 600px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .swiper-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        
+        .slide-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+        
+        .slide-content p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: #ff7e00;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .hero-btn:hover {
+            background-color: #e67300;
+            transform: translateY(-3px);
+        }
+        
+        /* 内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1e5f8e;
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: #ff7e00;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* 项目背景板块 */
+        .background-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .background-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #1e5f8e;
+        }
+        
+        .background-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .background-card h3 {
+            color: #1e5f8e;
+            margin-bottom: 20px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .background-card h3 .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #ff7e00;
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .background-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            color: #ff7e00;
+            font-weight: 700;
+        }
+        
+        /* 项目内容板块 */
+        .project-content {
+            background-color: #f0f7ff;
+            padding: 100px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .card-header {
+            background-color: #1e5f8e;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .card-header h3 {
+            font-size: 22px;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-body ul {
+            list-style-type: none;
+        }
+        
+        .card-body li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .card-body li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff7e00;
+            font-weight: bold;
+        }
+        
+        /* 服务矩阵 */
+        .service-matrix {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #1e5f8e;
+            margin-bottom: 20px;
+        }
+        
+        .service-item h4 {
+            color: #1e5f8e;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        /* 发展路径 */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #1e5f8e;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 25px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-left: 4px solid #ff7e00;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-right: 4px solid #ff7e00;
+        }
+        
+        .timeline-content h3 {
+            color: #1e5f8e;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #ff7e00;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -17px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -17px;
+        }
+        
+        /* 风险管控 */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .risk-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #1e5f8e;
+        }
+        
+        .risk-card h4 {
+            color: #1e5f8e;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .risk-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* 项目效益 */
+        .benefits {
+            background-color: #1e5f8e;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .benefits .section-title {
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 35px 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .benefit-icon {
+            font-size: 48px;
+            color: #ff7e00;
+            margin-bottom: 25px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        /* 未来计划 */
+        .future-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .future-tab {
+            padding: 12px 25px;
+            background-color: #e9f0f7;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #555;
+        }
+        
+        .future-tab.active {
+            background-color: #1e5f8e;
+            color: white;
+        }
+        
+        .future-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .future-item {
+            display: none;
+        }
+        
+        .future-item.active {
+            display: block;
+        }
+        
+        .future-item h3 {
+            color: #1e5f8e;
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .future-item ul {
+            list-style-type: none;
+        }
+        
+        .future-item li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .future-item li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #ff7e00;
+            font-weight: bold;
+        }
+        
+        /* 合作伙伴 */
+        .partners {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .partner-logo {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 200px;
+        }
+        
+        .partner-logo i {
+            font-size: 40px;
+            color: #1e5f8e;
+            margin-right: 15px;
+        }
+        
+        .partner-logo span {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #ff7e00;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #ff7e00;
+            left: 0;
+            bottom: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ff7e00;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #ff7e00;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                border-left: 4px solid #ff7e00;
+                border-right: none;
+            }
+            
+            .slide-content h1 {
+                font-size: 36px;
+            }
+            
+            .slide-content p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero {
+                height: 500px;
+                margin-top: 110px;
+            }
+            
+            .slide-content h1 {
+                font-size: 30px;
+            }
+            
+            .slide-content p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .container {
+                padding: 60px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slide-content h1 {
+                font-size: 26px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .background-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hands-helping logo-icon"></i>
+                <div class="logo-text">乡约<span>暖途</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#background">项目背景</a></li>
+                    <li><a href="#content">项目内容</a></li>
+                    <li><a href="#development">项目发展</a></li>
+                    <li><a href="#risk">风险管控</a></li>
+                    <li><a href="#benefits">项目效益</a></li>
+                </ul>
+            </nav>
+            <button class="btn-join">立即加入</button>
+        </div>
+    </header>
+
+    <!--轮播图/横幅区域 -->
+    <section class="hero" id="home">
+    <div class="swiper">
+    <div class="swiper-wrapper">
+   <!-- 第一张：火车轨道与返乡主题 -->
+    <div class="swiper-slide" style="background-image: url('images/home/p1.jpg');">
+    <div class="slide-content">
+    <h1>乡约暖途——大学生返乡最后十公里公益助行计划</h1>
+    <p>温暖返乡路，连接城乡情，解决大学生返乡"最后十公里"难题</p>
+      <a href="#content" class="hero-btn">了解项目详情</a>
+       </div>
+       </div>
+   <!-- 第二张：铁路与回家主题 -->
+                <div class="swiper-slide" style="background-image: url('images/home/p6.jpg');">
+                  <div class="slide-content">
+                    <div class="slide-content">
+                      <h1>铁路尽头，温暖回家路</h1>
+                      <p>从高铁站到家的最后十公里，我们为您保驾护航</p>
+                      <a href="#background" class="hero-btn">了解社会痛点</a> </div>
+                    <p>&nbsp;</p>
+                  </div>
+                </div>
+  <!-- 第三张：铁轨与远方 -->
+  <div class="swiper-slide" style="background-image: url('images/home/p5.jpg');">
+                    <div class="slide-content">
+                        <h1>打造可持续的便民交通生态</h1>
+                        <p>平台+车队+服务站三位一体，温暖大学生返乡路</p>
+                        <a href="#benefits" class="hero-btn">查看项目效益</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- 项目背景板块 -->
+    <section id="background" class="container">
+        <h2 class="section-title">项目背景</h2>
+        <p class="section-subtitle">返乡痛点与政策缺口——大学生返乡"最后十公里"空白亟待填补</p>
+        
+        <div class="background-grid">
+        <div class="background-card">
+          <div class="card-image">
+              <img src="images/background/VCG41N1676201416.jpg" alt="交通枢纽拥挤场景">
+            </div>
+            <h3><span class="number">01</span>社会痛点：接驳断点与潮汐矛盾</h3>
+                <p><span class="highlight">市县乡交通断点：</span>高铁站到县域客运站平均距离28公里，末班公交17:30即停；行政村到自然村仍有43%未通固定班线。</p>
+                <p><span class="highlight">运力潮汐错配：</span>寒假高峰日客流达平日3.7倍，但县域客运企业按淡季排班，线路停班率超30%。</p>
+                <p><span class="highlight">服务体验滞后：</span>县域客运无实时调度系统，学生无法获取班次变动信息，误车率18%。</p>
+            </div>
+            <div class="background-card">
+            <div class="card-image">
+              <img src=     "images/background/VCG211456241783.jpg" alt="场景">
+            </div>
+                <h3><span class="number">02</span>政策盲区：基建与补贴缺口</h3>
+                <p><span class="highlight">城乡客运一体化滞后：</span>县域完成班线国有化率仅62%，乡村客运新能源占比不足15%。</p>
+                <p><span class="highlight">村村通末梢空白：</span>"村村通"硬化路只到行政村村口，通往自然村的3.2万公里土路缺专项维护。</p>
+                <p><span class="highlight">学生补贴结构性缺失：</span>现行学生票优惠仅覆盖高铁、干线客运，农村客运补贴无"高峰临时运力"科目。</p>
+            </div>
+            <div class="background-card">
+            <div class="card-image">
+              <img src=    "images/background/VCG41N939485082.jpg">
+              </div>
+                <h3><span class="number">03</span>需求总结：大学生返乡特殊需求</h3>
+                <p><span class="highlight">高频点对点与大行李：</span>学生返乡呈"同校同县"高聚合，行李件均2.3件、重量23公斤。</p>
+                <p><span class="highlight">信息差与误车风险：</span>列车到达信息、客运班次、实时余票分散在5个系统，学生需手动比对，平均耗时38分钟。</p>
+                <p><span class="highlight">夜间到站无正规接驳：</span>23:00后到站学生滞留率近四成，被迫高价拼车，安全风险高。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目内容板块 -->
+    <section id="content" class="project-content">
+        <div class="container">
+            <h2 class="section-title">项目内容</h2>
+            <p class="section-subtitle">平台+车队+服务站三位一体，构建完整的返乡"最后十公里"服务体系</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>接驳服务</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>小程序提前30天开放寒假预报名，系统根据学生目的地生成返乡专线</li>
+                            <li>解决汽车站到家门口的出行断点，实现低成本、无缝化的返乡衔接</li>
+                            <li>平均匹配时长仅3.1分钟，寒假试运营上座率达92%</li>
+                            <li>新增"女性专车"选项，选择率28%，投诉率降至0.3%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>快递行李托运服务</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>与邮政、极兔合作共建行李托运服务，项目抽成30%</li>
+                            <li>学生提前3天寄递，县内价格每公斤0.8元，比主流快递低20%</li>
+                            <li>到站凭取件码直接空手回家，减轻旅途负担</li>
+                            <li>行李搬运协助，换乘迷路率降至0.1%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>增值服务与商业生态</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>"乡约暖途"小程序内设立广告位，优先开放给县域本地商家</li>
+                            <li>按"季度包段"或"点击计费"两种方式收费</li>
+                            <li>归程服务站提供热水、充电、应急药品，寒假日均接待600人次</li>
+                            <li>设立"返乡公益基金"，补贴贫困学生车票及夜间运力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="section-title" style="margin-top: 80px; font-size: 28px;">线上服务矩阵</h3>
+            <div class="service-matrix">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>"乡约暖途"小程序</h4>
+                    <p>轻量实用、精准服务，学生端预约行程、司机端接单导航、管理端实时调度</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>"乡约暖途"网页</h4>
+                    <p>对应小程序功能，提供更全面的信息展示和服务介绍</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h4>新能源车队</h4>
+                    <p>70%为新能源7座商务车，每公里成本0.28元，较燃油车降38%</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>归程服务站</h4>
+                    <p>距高铁站直线800米，步行10分钟，提供全方位便民服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目发展板块 -->
+    <section id="development" class="container">
+        <h2 class="section-title">项目发展</h2>
+        <p class="section-subtitle">前中后三期发展路径，稳步推进项目落地与规模化</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>前期：精准调研与定位</h3>
+                    <p><strong>问卷+访谈：</strong>团队赴10所高校发放电子+纸质问卷，回收3000份有效样本，锁定"县域枢纽至乡镇"交通断层、夜间抵达无接驳等难题。</p>
+                    <p><strong>筹备与资源：</strong>联动政企校资源，搭建团队、筹备物资与技术，制定预算与分工。</p>
+                    <p><strong>风险与预案：</strong>预判客流、运力等风险，制定应急与安全保障方案。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>中期：试点落地与迭代</h3>
+                    <p><strong>小程序1.0上线：</strong>两周内注册学生1100人，日活峰值500人次，平均匹配时长3.1分钟。</p>
+                    <p><strong>高铁—长垣县专线：</strong>开通2条专线，每日往返8班，寒假试运营上座率92%，单车日均收入由淡季260元提升至720元。</p>
+                    <p><strong>夜间班次+女性专车：</strong>根据23:00后到达列车数据，新增夜间班次3班；女性专车配备同性别志愿者跟车，安全感满意度提升19个百分点。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>后期：规模推广与长效落地</h3>
+                    <p><strong>联动本地客运企业：</strong>以低偿模式分摊运营成本，吸引本地商户赞助物资，降低项目资金压力。</p>
+                    <p><strong>跨区域复制：</strong>模式被邻省菏泽市直接引进，开通线路5条，形成区域复制示范效应。</p>
+                    <p><strong>标准化建设：</strong>联合郑州市交投发布《校园潮汐出行服务规范》团体标准，定义车辆、司机、平台、保险、补贴五大模块。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 风险管控板块 -->
+    <section id="risk" class="container">
+        <h2 class="section-title">风险管控</h2>
+        <p class="section-subtitle">四大维度全面兜底，确保项目稳健运行</p>
+        
+        <div class="risk-grid">
+            <div class="risk-card">
+                <h4>运营风险：需求不足与停班</h4>
+                <p><strong>30人触发机制：</strong>预报名低于30人系统自动推送"延时+合并"方案，寒假线路取消率降至0.5%。</p>
+                <p><strong>预售锁客：</strong>提前15天开启"预售特惠票"，锁定潜在客流。</p>
+                <p><strong>出行无忧险：</strong>因合并退票补偿10元红包+优先改乘权益，学生接受度92%。</p>
+            </div>
+            <div class="risk-card">
+                <h4>市场风险：竞争降价</h4>
+                <p>建立品牌护城河，通过服务质量、安全背书和公益属性形成差异化竞争优势，避免陷入价格战。</p>
+            </div>
+            <div class="risk-card">
+                <h4>服务风险：安全与投诉</h4>
+                <p><strong>30秒客服响应：</strong>投诉分级处理，轻微2小时、重大24小时结案，结案率100%。</p>
+                <p><strong>红马甲引导：</strong>归程服务站设引导岗，换乘迷路率降至0.1%。</p>
+                <p><strong>司机双证+GPS：</strong>车辆年检+保险+GPS双监控，轨迹异常30秒内预警，寒假零事故。</p>
+            </div>
+            <div class="risk-card">
+                <h4>技术风险：系统崩溃与数据泄露</h4>
+                <p><strong>腾讯云压测：</strong>上线前压测5000并发无故障，接口响应时间&lt;200ms。</p>
+                <p><strong>备用短信通道：</strong>平台故障时手动短信通知司机，3分钟内完成切换。</p>
+                <p><strong>等保3级加密：</strong>数据加密等级等保3级，学生手机号脱敏显示，数据泄露零事件。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目效益板块 -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">项目效益</h2>
+            <p class="section-subtitle">经济与社会效益双赢，打造可持续便民生态</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>经济效益</h3>
+                    <p><strong>车辆利用率提升：</strong>试点县私家车车辆利用率由55%提升至82%，直接净利润增加2万元。</p>
+                    <p><strong>司机增收：</strong>单车日均收入增加460元，司机月收入提高1800元，间接带动就业67人。</p>
+                    <p><strong>规模营收预测：</strong>规模化后预计每年为县域客运新增营收15万元，整体利润提升8.5个百分点。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>社会效益</h3>
+                    <p><strong>返乡时长缩短：</strong>学生平均返乡总时长缩短1.8小时，满意度94%。</p>
+                    <p><strong>情感联结强化：</strong>让学生切实感受到社会关怀，增强对公共服务的认同感和情感联结。</p>
+                    <p><strong>区域复制：</strong>模式被邻省菏泽市直接引进，开通线路5条，形成区域复制示范效应。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>综合价值</h3>
+                    <p><strong>可持续生态：</strong>通过动态定价+广告冠名+行李增值，实现项目自我造血能力。</p>
+                    <p><strong>产学研闭环：</strong>设立"乡约暖途"实践基金，每年资助10支学生调研队，形成自我迭代闭环。</p>
+                    <p><strong>城乡融合名片：</strong>申请国家级志愿项目，打造"青春返乡"品牌IP，成为城乡融合的青春名片。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 未来计划板块 -->
+    <section class="container">
+        <h2 class="section-title">未来计划</h2>
+        <p class="section-subtitle">短期做稳做精、中期区域复制、长期打造交通+民生平台</p>
+        
+        <div class="future-tabs">
+            <button class="future-tab active" data-tab="short-term">短期(1-2年)</button>
+            <button class="future-tab" data-tab="mid-term">中期(3-5年)</button>
+            <button class="future-tab" data-tab="long-term">长期(5年+)</button>
+        </div>
+        
+        <div class="future-content">
+            <div class="future-item active" id="short-term">
+                <h3>做稳做精阶段</h3>
+                <ul>
+                    <li><strong>收支平衡：</strong>通过动态定价+广告冠名+行李增值，预计2025年寒假实现年度收支平衡，现金流回正。</li>
+                    <li><strong>小程序2.0：</strong>新增"返程返校"双向撮合，打通"回家+回校"双程数据，用户生命周期价值提升35%。</li>
+                    <li><strong>实践基金：</strong>设立"乡约暖途"实践基金，每年资助10支学生调研队，形成自我迭代的"产学研"闭环。</li>
+                </ul>
+            </div>
+            <div class="future-item" id="mid-term">
+                <h3>区域复制阶段</h3>
+                <ul>
+                    <li><strong>跨市专线：</strong>覆盖同省3个地级市，开通跨市接驳专线12条，与高铁"环线"同步售票，实现"一票到家"。</li>
+                    <li><strong>团体标准：</strong>联合郑州市交投发布《校园潮汐出行服务规范》团体标准，定义车辆、司机、平台、保险、补贴五大模块。</li>
+                    <li><strong>用户规模：</strong>用户规模突破20万，占全省大学生人数25%，形成网络效应，边际成本递减至每单0.8元。</li>
+                </ul>
+            </div>
+            <div class="future-item" id="long-term">
+                <h3>交通+民生平台阶段</h3>
+                <ul>
+                    <li><strong>城乡配送网：</strong>整合乡村物流、农产品代购，打造"城乡配送一张网"，返程空座带货成本降至0.3元/公斤。</li>
+                    <li><strong>金融闭环：</strong>引入保险、金融分期，推出"返乡意外险+学费分期"组合，形成学生出行生态闭环。</li>
+                    <li><strong>国家级IP：</strong>申请国家级志愿项目，打造"青春返乡"品牌IP，与共青团中央合作举办年度"返乡节"。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴板块 -->
+    <section class="partners">
+        <div class="container">
+            <h2 class="section-title">合作伙伴</h2>
+            <p class="section-subtitle">携手政企校多方力量，共同推进公益助行计划</p>
+            
+            <div class="partner-logos">
+                <div class="partner-logo">
+                    <i class="fas fa-university"></i>
+                    <span>高校联盟</span>
+                </div>
+                <div class="partner-logo">
+                    <i class="fas fa-handshake"></i>
+                    <span>韵梧文化创意馆</span>
+                </div>
+                <div class="partner-logo">
+                    <i class="fas fa-cloud"></i>
+                    <span>腾讯云</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>乡约暖途</h3>
+                <p>大学生返乡最后十公里公益助行计划，致力于解决大学生返乡旅途的最后一段难题，温暖返乡路，连接城乡情。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#background">项目背景</a></li>
+                    <li><a href="#content">项目内容</a></li>
+                    <li><a href="#development">项目发展</a></li>
+                    <li><a href="#risk">风险管控</a></li>
+                    <li><a href="#benefits">项目效益</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 河南省郑州市公益大道123号</li>
+                    <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                    <li><i class="fas fa-envelope"></i> contact@xiangyuenuantu.org</li>
+                    <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2023 乡约暖途——大学生返乡最后十公里公益助行计划. 保留所有权利.</p>
+            <p style="margin-top: 10px;">团队名称：乡约暖途创新商业团队 | 指导老师：XXX教授</p>
+        </div>
+    </footer>
+
+    <!-- 引入Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    
+    <script>
+        // 初始化Swiper轮播
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 报名按钮点击事件
+        document.querySelectorAll('.btn-join, .hero-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const name = prompt("请输入您的姓名：");
+                if(name) {
+                    const role = confirm("您是希望成为志愿者吗？(确定：志愿者，取消：寻求帮助的学生)") ? "志愿者" : "学生";
+                    alert(`感谢${name}，您已成功报名成为${role}！我们将在24小时内与您联系。`);
+                }
+            });
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+        
+        // 未来计划选项卡
+        document.querySelectorAll('.future-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有选项卡的active类
+                document.querySelectorAll('.future-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // 为当前选项卡添加active类
+                this.classList.add('active');
+                
+                // 隐藏所有内容
+                document.querySelectorAll('.future-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // 显示对应的内容
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // 数据统计动画
+        const benefitsSection = document.getElementById('benefits');
+        const statItems = document.querySelectorAll('.benefit-card');
+        let statsAnimated = false;
+        
+        function animateBenefits() {
+            if(statsAnimated) return;
+            
+            const rect = benefitsSection.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 100) {
+                statItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.8s, transform 0.8s';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+                statsAnimated = true;
+            }
+        }
+        
+        window.addEventListener('scroll', animateBenefits);
+    </script>
+</body>
+</html>
